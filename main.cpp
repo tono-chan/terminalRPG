@@ -4,6 +4,7 @@
 
 #include <iostream>
 
-int main( int args, char argv[]) {
+int main( ) {
     std::cout << "Hello World!" << std::endl;
+    return 0;
 }
