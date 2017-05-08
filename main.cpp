@@ -3,8 +3,11 @@
 //
 
 #include <iostream>
+#include <terminalWindow.h>
 
 int main( ) {
-    std::cout << "Hello World!" << std::endl;
-    return 0;
+    terminalWindow *tw = new terminalWindow();
+    std::cout <<  "height" << tw->height() << std::endl;
+    std::cout <<  "width" << tw->width() << std::endl;
+
 }

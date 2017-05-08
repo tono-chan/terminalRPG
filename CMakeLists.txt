@@ -8,6 +8,7 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g3 -Og -pg")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -s -DNDEBUG -march=native")
 # include path
 include_directories("./include")
+add_subdirectory("./include")
 
 # libraries
 add_subdirectory(lib)
