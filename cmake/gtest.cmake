@@ -11,14 +11,11 @@ ExternalProject_Add(
         GIT_REPOSITORY https://github.com/google/googletest.git
         ### Specify Tag
         GIT_TAG release-1.8.0
-
         ## PATH to source tree
         SOURCE_DIR ${PROJECT_BINARY_DIR}/Depends/src/gtest
-
-
         ### Path to build tree
         BINARY_DIR ${PROJECT_BINARY_DIR}/Depends/build/gtest
-        PREFIX {PROJECT_BINARY_DIR}/lib
+        PREFIX ${PROJECT_BINARY_DIR}/Depends/lib
         BUILD_COMMAND make
         INSTALL_COMMAND ""
 )
