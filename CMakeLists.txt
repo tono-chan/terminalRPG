@@ -16,11 +16,17 @@ add_subdirectory(lib)
 #executables
 add_executable(main main.cpp)
 target_link_libraries( main
-    util )
+    util
+        )
 
 # tests
 if ( NOT without-test )
     enable_testing()
     include(cmake/gtest.cmake)
     add_subdirectory(test)
+endif()
+
+# qt
+if ( NOT without-qt )
+    include(cmake/qt.cmake)
 endif()
