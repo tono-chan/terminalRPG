@@ -4,6 +4,10 @@
 
 #include <iostream>
 #include <terminalWindow.h>
+#include <QtCore/QString>
+#include <string>
+#include <stdio.h>
+
 
 void shake(std::string msg) {
 
@@ -15,12 +19,9 @@ void shake(std::string msg) {
     }
 
 int main( ) {
+    setlocale( LC_CTYPE, "jpn" );
     terminalWindow *tw = new terminalWindow();
     std::cout <<  "height" << tw->height() << std::endl;
     std::cout <<  "width" << tw->width() << std::endl;
-
-    std::string sample = "あいうえお";
-    std::cout << sample.length() <<std::endl;
-
-
+    
 }
