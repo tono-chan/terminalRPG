@@ -11,16 +11,19 @@
 class TermMsg {
 
 private:
+
     int height_;
     int width_;
-    int msg_;
+    std::string msg_;
 
 
 public:
 
-    TermMsg(int height, int width,std::__cxx11::string msg);
+    TermMsg(int height, int width);
+    TermMsg(int height, int width, std::string msg);
 
     bool flash();
+    bool shake();
 };
 
 

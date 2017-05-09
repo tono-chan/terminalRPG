@@ -5,6 +5,7 @@ target_link_libraries(msg-test
         gtest
         gtest_main
         pthread
+        util
         )
 
 add_test(
