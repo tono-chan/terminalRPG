@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <string_util.h>
-#include <EastWidthAsian.h>
+#include <east_width_asian.h>
 
 TEST ( utf8 , count ) {
 

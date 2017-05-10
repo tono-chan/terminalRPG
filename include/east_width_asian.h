@@ -9,11 +9,11 @@
 
 
 
-class EastWidthAsian {
+class east_width_asian {
 public:
-    EastWidthAsian();
+    east_width_asian();
 
-    static int width_char_code[][2];
+    static int width_char_code[455][2];
 
 
 };

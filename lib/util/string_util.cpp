@@ -2,7 +2,7 @@
 // Created by youhei on 17/05/10.
 //
 
-#include <EastWidthAsian.h>
+#include <east_width_asian.h>
 #include <iostream>
 #include "string_util.h"
 

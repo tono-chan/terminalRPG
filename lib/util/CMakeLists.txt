@@ -4,5 +4,5 @@ add_library(util STATIC
         terminalWindow.cpp
         term_msg.cpp
         string_util.cpp
-        EastWidthAsian.cpp
+        east_width_asian.cpp
         )
