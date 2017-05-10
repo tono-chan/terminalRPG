@@ -6,6 +6,11 @@
 #include <terminalWindow.h>
 #include <string>
 #include <stdio.h>
+#include <iostream>
+#include <string>
+#include <codecvt>
+#include <locale>
+
 
 
 void shake(std::string msg) {
@@ -22,5 +27,16 @@ int main( ) {
     terminalWindow *tw = new terminalWindow();
     std::cout <<  "height" << tw->height() << std::endl;
     std::cout <<  "width" << tw->width() << std::endl;
+
+    using namespace std;
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> cv;
+    wstring wstr = L"𠮷野家のコピペ";
+
+    for (auto v: wstr) {
+        cout << cv.to_bytes(v) << '\n';
+    }
+
+    return 0;
+
 
 }
