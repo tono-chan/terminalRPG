@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 #include <string_util.h>
 #include <codecvt>
+#include <thread>
 
 TEST (utf8, count)
 {

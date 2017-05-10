@@ -10,6 +10,8 @@
 #include <string>
 #include <codecvt>
 #include <locale>
+#include <term_msg.h>
+#include <stdio.h>
 
 void shake (std::string msg)
 {
@@ -38,6 +40,20 @@ int main ()
     }
 
   if (system("CLS")) system("clear");
+
+  term_msg term_msg1( 100 , 100);
+
+  fprintf(stderr,"hi\n");
+  fprintf(stderr,"hi\n");
+  fprintf(stderr,"hi\n");
+  fprintf(stderr,"hi\n");
+  fprintf(stderr,"hi\n");
+  term_msg1.progress_bar ();
+  term_msg1.up(8);
+  fprintf(stderr, "\033[2A");
+  fprintf(stderr,"hello\n");
+
+
   return 0;
 
 }
