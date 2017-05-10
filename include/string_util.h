@@ -16,7 +16,8 @@ public:
 
     int getSize();
 
-    int get_char_code(std::string c);
+    unsigned int get_char_code(std::string c);
+
 private:
 
     std::string word_;

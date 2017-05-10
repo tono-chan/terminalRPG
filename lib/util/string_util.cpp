@@ -6,6 +6,7 @@
 #include <iostream>
 #include "string_util.h"
 
+
 int StringUtil::getSize() {
     unsigned int len = 0;
     int pos;
@@ -35,6 +36,7 @@ int StringUtil::getAsianWidth() {
     unsigned char lead;
     int char_size = 0;
 
+
     for ( pos = 0 ; pos < word_.size(); pos += char_size) {
         lead = (unsigned char) word_[pos];
         if (lead < 0x80) {
@@ -48,22 +50,20 @@ int StringUtil::getAsianWidth() {
         }
 
         std::string character = word_.substr(pos, char_size);
-
-
+        int charcode = get_char_code(character);
 
          }
     return width;
 
-    return 0;
 }
 
-int StringUtil::get_char_code( std::string c )  {
+unsigned int StringUtil::get_char_code( std::string c )  {
     unsigned int charcode = 0;
-    const char* chars = c.c_str();
-    int size = c.size();
+    int size = (int) c.size();
+    unsigned char lead;
     for (int i = 0; i < size ; i++ ) {
-        charcode += (unsigned int)chars[i] * 256^(size- i -1);
-        std::cout << charcode << std::endl;
+        lead = (unsigned char) c[i];
+        charcode |= (lead << (size - i - 1)*8);
     }
     return charcode;
 }
