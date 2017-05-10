@@ -5,6 +5,13 @@
 #include <gtest/gtest.h>
 #include <string_util.h>
 #include <east_width_asian.h>
+#include <codecvt>
+#include <locale>
+#include <string>
+#include <iostream>
+
+
+
 
 TEST ( utf8 , count ) {
 
@@ -16,12 +23,21 @@ TEST ( utf8 , count ) {
 }
 
 TEST ( utf8 , charWidth ) {
+    std::string word = "あいうえおaiueo";
+
+    StringUtil stringUtil(word);
+
+    int width = stringUtil.getAsianWidth();
+    ASSERT_EQ( 15, width );
+}
+
+TEST( utf8 , sandbox ) {
 
     setlocale( LC_CTYPE, "jpn" );
     std::string word = "あいうえお";
 
     StringUtil strutil(word);
-    strutil.getAsianWidth();
+//    ASSERT_EQ(10, strutil.getAsianWidth());
 
     int charcode = strutil.get_char_code("あ");
 
@@ -29,6 +45,25 @@ TEST ( utf8 , charWidth ) {
 
     std::string a = "あ";
     const char* chars = a.c_str();
+
+    char32_t  a16 = U'あ';
+    int a32charcode = (int)a16;
+    std::cout << "utf16(あ):" <<std::hex << a32charcode << std::endl;
+
+    std::string aiueo = "あいうえお";
+    std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> converter;
+
+    std::u32string u32aiueo = converter.from_bytes(aiueo);
+
+    int u32 = (int)u32aiueo[0];
+    int utf8 = (int)a[0];
+
+    std::cout << "utf16(あ):" <<std::hex << u32 << std::endl;
+    std::cout << "utf16(あ):" <<std::hex << utf8 << std::endl;
+
+    aiueo = converter.to_bytes(u32aiueo);
+
+
 
 
 
@@ -57,5 +92,4 @@ TEST ( utf8 , charWidth ) {
 //    int width = strutil.getAsianWidth();
 //
 //    ASSERT_EQ(3,width);
-
 }
