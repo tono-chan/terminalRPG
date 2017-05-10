@@ -52,7 +52,20 @@ int StringUtil::getAsianWidth() {
         std::string character = word_.substr(pos, char_size);
         int charcode = get_char_code(character);
 
-         }
+
+        int foo=0;
+        for ( int i = 0; i < east_width_asian::codelist_size ; i++ ) {
+            if (east_width_asian::width_char_code[i][0] <= charcode) {
+                foo = east_width_asian::width_char_code[i][0];
+                if (charcode <= east_width_asian::width_char_code[i][1]) {
+                    width +=2;
+                }
+            } else {
+                std::cout << foo;
+            }
+        }
+
+    }
     return width;
 
 }
