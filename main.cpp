@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <terminalWindow.h>
-#include <QtCore/QString>
 #include <string>
 #include <stdio.h>
 
@@ -23,5 +22,5 @@ int main( ) {
     terminalWindow *tw = new terminalWindow();
     std::cout <<  "height" << tw->height() << std::endl;
     std::cout <<  "width" << tw->width() << std::endl;
-    
+
 }

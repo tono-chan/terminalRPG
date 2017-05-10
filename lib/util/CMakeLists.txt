@@ -4,4 +4,6 @@ add_library(util STATIC
         awesome.cpp
         terminalWindow.cpp
         term_msg.cpp
+        string_util.cpp
+        EastWidthAsian.cpp
         )
