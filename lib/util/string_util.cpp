@@ -5,6 +5,8 @@
 #include <east_width_asian.h>
 #include <iostream>
 #include "string_util.h"
+#include <codecvt>
+#include <locale>
 
 
 int StringUtil::getSize() {
@@ -31,43 +33,28 @@ int StringUtil::getSize() {
 }
 
 int StringUtil::getAsianWidth() {
-    unsigned int width = 0;
-    int pos;
-    unsigned char lead;
-    int char_size = 0;
 
+    int width = 0;
 
-    for ( pos = 0 ; pos < word_.size(); pos += char_size) {
-        lead = (unsigned char) word_[pos];
-        if (lead < 0x80) {
-            char_size = 1;
-        } else if (lead < 0xE0) {
-            char_size = 2;
-        } else if (lead < 0xF0) {
-            char_size = 3;
-        } else {
-            char_size = 4;
-        }
+    std::wstring_convert<std::codecvt_utf8<char32_t> , char32_t> cv;
+    std::u32string  w32word = cv.from_bytes(word_);
+    for ( char32_t & c : w32word ) {
+        int charcode = (int)c;
 
-        std::string character = word_.substr(pos, char_size);
-        int charcode = get_char_code(character);
-
-
-        int foo=0;
         for ( int i = 0; i < east_width_asian::codelist_size ; i++ ) {
             if (east_width_asian::width_char_code[i][0] <= charcode) {
-                foo = east_width_asian::width_char_code[i][0];
                 if (charcode <= east_width_asian::width_char_code[i][1]) {
                     width +=2;
+                    break;
                 }
             } else {
-                std::cout << foo;
+                width++;
+                break;
             }
         }
 
     }
     return width;
-
 }
 
 unsigned int StringUtil::get_char_code( std::string c )  {

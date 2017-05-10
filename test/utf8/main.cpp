@@ -24,9 +24,7 @@ TEST ( utf8 , count ) {
 
 TEST ( utf8 , charWidth ) {
     std::string word = "あいうえおaiueo";
-
     StringUtil stringUtil(word);
-
     int width = stringUtil.getAsianWidth();
     ASSERT_EQ( 15, width );
 }
