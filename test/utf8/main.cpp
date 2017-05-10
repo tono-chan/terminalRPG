@@ -17,11 +17,14 @@ TEST ( utf8 , count ) {
 
 TEST ( utf8 , charWidth ) {
 
-    std::string word = "aあ";
+    std::string word = "a";
 
     StringUtil strutil(word);
-    int width = strutil.getAsianWidth();
 
-    ASSERT_EQ(3,width);
+    int charcode = strutil.get_char_code("a");
+    ASSERT_EQ((char)'a',charcode);
+//    int width = strutil.getAsianWidth();
+//
+//    ASSERT_EQ(3,width);
 
 }
