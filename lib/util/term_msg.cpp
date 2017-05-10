@@ -4,43 +4,43 @@
 
 #include <iostream>
 #include "term_msg.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-bool TermMsg::flash() {
-    std::cout << msg_ << std::endl;
+bool term_msg::flash ()
+{
+  std::cout << msg_ << std::endl;
 
 //    if (msg_.length();
 //    )
 
-    return true;
+  return true;
 }
 
-
-
-TermMsg::TermMsg(int height, int width) {
-
-}
-
-TermMsg::TermMsg(int height, int width, std::string msg) {
-    height_ = height;
-    width_ = width;
-    msg_ = msg;
-
-}
-
-void clrscr()
+term_msg::term_msg (int height, int width)
 {
-    system("clear");
+
 }
 
-bool TermMsg::shake() {
+term_msg::term_msg (int height, int width, std::string msg)
+{
+  height_ = height;
+  width_ = width;
+  msg_ = msg;
 
-    printf("hello");
+}
 
-    clrscr();
+void clrscr ()
+{
+  system ("clear");
+}
 
-    printf("world");
+bool term_msg::shake ()
+{
 
-    return false;
+  printf ("hello");
+
+  clrscr ();
+
+  printf ("world");
+
+  return false;
 }

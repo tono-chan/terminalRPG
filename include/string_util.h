@@ -7,21 +7,20 @@
 
 #include <string>
 
-class StringUtil {
+class string_util {
 
-public:
-    StringUtil(std::string word);
+ public:
+  string_util (std::string word);
 
-    int getAsianWidth();
+  int get_asian_width ();
 
-    int getSize();
+  int get_size ();
 
-    unsigned int get_char_code(std::string c);
+  unsigned int get_char_code (std::string c);
 
-private:
+ private:
 
-    std::string word_;
+  std::string word_;
 };
-
 
 #endif //TERMINALRPG_STRINGUTIL_H

@@ -5,26 +5,23 @@
 #ifndef TERMINALRPG_TERM_MSG_H
 #define TERMINALRPG_TERM_MSG_H
 
-
 #include <string>
 
-class TermMsg {
+class term_msg {
 
-private:
+ private:
 
-    int height_;
-    int width_;
-    std::string msg_;
+  int height_;
+  int width_;
+  std::string msg_;
 
+ public:
 
-public:
+  term_msg (int height, int width);
+  term_msg (int height, int width, std::string msg);
 
-    TermMsg(int height, int width);
-    TermMsg(int height, int width, std::string msg);
-
-    bool flash();
-    bool shake();
+  bool flash ();
+  bool shake ();
 };
-
 
 #endif //TERMINALRPG_TERM_MSG_H

@@ -3,7 +3,7 @@ project(terminalRPG)
 
 #set(CMAKE_CXX_COMPILER clang++)
 set(CMAKE_CXX_STANDARD 11)
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
@@ -16,12 +16,12 @@ add_subdirectory(lib)
 
 #executables
 add_executable(main main.cpp)
-target_link_libraries( main
-    util)
+target_link_libraries(main
+        util)
 
 # tests
-if ( NOT without-test )
+if (NOT without-test)
     enable_testing()
     include(cmake/gtest.cmake)
     add_subdirectory(test)
-endif()
+endif ()
