@@ -5,16 +5,15 @@
 #ifndef TERMINALRPG_EAST_ASIAN_WIDTH_H
 #define TERMINALRPG_EAST_ASIAN_WIDTH_H
 
+#include <string>
+
+
 
 class EastWidthAsian {
 public:
     EastWidthAsian();
 
-    EastWidthAsian(long width_char_code);
-
-public:
-
-    int width_char_code[][2];
+    static int width_char_code[][2];
 
 
 };

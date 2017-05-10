@@ -10,8 +10,14 @@
 class StringUtil {
 
 public:
-    static int getSize(std::string );
+    StringUtil(std::string word);
 
+    int getAsianWidth();
+
+    int getSize();
+
+private:
+    std::string word_;
 };
 
 
