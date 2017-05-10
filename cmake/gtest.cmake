@@ -20,8 +20,8 @@ ExternalProject_Add(
         INSTALL_COMMAND ""
 )
 ExternalProject_Get_Property(GoogleTest source_dir)
-include_directories(${source_dir}/include)
 ExternalProject_Get_Property(GoogleTest binary_dir)
+include_directories(${source_dir}/googletest/include)
 add_library(gtest STATIC IMPORTED)
 set_property(
         TARGET gtest
