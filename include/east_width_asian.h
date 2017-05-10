@@ -13,7 +13,8 @@ class east_width_asian {
 public:
     east_width_asian();
 
-    static int width_char_code[455][2];
+    static const int codelist_size = 455;
+    static const int width_char_code[codelist_size][2];
 
 
 };

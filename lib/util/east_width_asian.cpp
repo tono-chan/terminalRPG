@@ -460,7 +460,7 @@ const int east_width_asian::width_char_code[455][2] = {
             {0xE0100,0xE01EF},
             {0xF0000,0xFFFFD},
             {0x100000,0x10FFFD}
-    };
+};
 
-}
+
 
