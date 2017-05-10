@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "term_msg.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 bool TermMsg::flash() {
@@ -43,5 +44,3 @@ bool TermMsg::shake() {
 
     return false;
 }
-
-

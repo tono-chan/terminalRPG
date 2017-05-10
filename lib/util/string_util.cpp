@@ -59,10 +59,10 @@ int StringUtil::getAsianWidth() {
 
 int StringUtil::get_char_code( std::string c )  {
     unsigned int charcode = 0;
-    for (int i = 0; i < c.size(); i++ ) {
-        std::cout << c.size() << std::endl;
-        int size = c.size();
-        charcode += (int)c[i] * 256^(size- i -1);
+    const char* chars = c.c_str();
+    int size = c.size();
+    for (int i = 0; i < size ; i++ ) {
+        charcode += (unsigned int)chars[i] * 256^(size- i -1);
         std::cout << charcode << std::endl;
     }
     return charcode;
@@ -73,5 +73,3 @@ StringUtil::StringUtil(std::string word) {
     word_ = word;
 
 }
-
-
