@@ -90,3 +90,12 @@ string_util::string_util (std::string word)
   word_ = word;
 
 }
+
+string_util::string_util (std::u32string word)
+{
+  std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> converter;
+  word_ = converter.to_bytes (word);
+
+}
+
+

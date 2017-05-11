@@ -12,6 +12,7 @@ class string_util {
  public:
   string_util (std::string word);
 
+  string_util (std::u32string word);
   int get_asian_width ();
 
   int get_size ();
