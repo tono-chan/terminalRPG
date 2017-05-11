@@ -5,13 +5,13 @@
 #ifndef TERMINALRPG_TERMINALWINDOW_H
 #define TERMINALRPG_TERMINALWINDOW_H
 
-class terminal_window {
+class TerminalWindow {
  private:
   int width_;
   int height_;
 
  public:
-  terminal_window ();
+  TerminalWindow ();
   int width ();
   int height ();
 

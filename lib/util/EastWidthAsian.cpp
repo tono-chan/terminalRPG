@@ -2,7 +2,7 @@
 // Created by youhei on 17/05/10.
 //
 
-#include "east_width_asian.h"
+#include "EastWidthAsian.h"
 
 const int east_width_asian::width_char_code[455][2] = {
     {0x00A1, 0x00A1},

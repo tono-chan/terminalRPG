@@ -2,12 +2,12 @@
 // Created by youhei on 17/05/09.
 //
 
-#include "terminal_window.h"
+#include "TerminalWindow.h"
 
 #include <sys/ioctl.h>
 #include <unistd.h>
 
-terminal_window::terminal_window ()
+TerminalWindow::TerminalWindow ()
 {
   struct winsize winsz;
   if (ioctl (STDOUT_FILENO, TIOCGWINSZ, &winsz) != -1)
@@ -17,12 +17,12 @@ terminal_window::terminal_window ()
     }
 }
 
-int terminal_window::width ()
+int TerminalWindow::width ()
 {
   return width_;
 }
 
-int terminal_window::height ()
+int TerminalWindow::height ()
 {
   return height_;
 }

@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include "term_msg.h"
+#include "TermMsg.h"
 
 TEST(MsgTest, top)
 {
@@ -13,7 +13,7 @@ TEST(MsgTest, top)
 
   int height = 24;
   int width = 80;
-  term_msg tms (height, width, msg);
+  TermMsg tms (height, width, msg);
 
   ASSERT_TRUE(tms.flash ());
 
