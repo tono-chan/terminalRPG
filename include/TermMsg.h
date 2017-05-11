@@ -7,7 +7,7 @@
 
 #include <string>
 
-class term_msg {
+class TermMsg {
 
  private:
 
@@ -16,8 +16,8 @@ class term_msg {
   std::string msg_;
 
  public:
-  term_msg (int height, int width);
-  term_msg (int height, int width, std::string msg);
+  TermMsg (int height, int width);
+  TermMsg (int height, int width, std::string msg);
 
   bool flash ();
   void clear_line ();

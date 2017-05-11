@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include <string_util.h>
+#include <StringUtil.h>
 #include <codecvt>
 #include <thread>
 

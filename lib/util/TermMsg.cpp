@@ -3,13 +3,13 @@
 //
 
 #include <iostream>
-#include "term_msg.h"
+#include "TermMsg.h"
 #include <sstream>
 #include <iomanip>
 #include <thread>
 #include <random>
 
-bool term_msg::flash ()
+bool TermMsg::flash ()
 {
   std::cout << msg_ << std::endl;
 
@@ -19,12 +19,12 @@ bool term_msg::flash ()
   return true;
 }
 
-term_msg::term_msg (int height, int width)
+TermMsg::TermMsg (int height, int width)
 {
 
 }
 
-term_msg::term_msg (int height, int width, std::string msg)
+TermMsg::TermMsg (int height, int width, std::string msg)
 {
   height_ = height;
   width_ = width;
@@ -32,27 +32,27 @@ term_msg::term_msg (int height, int width, std::string msg)
 
 }
 
-void term_msg::up (int up_count)
+void TermMsg::up (int up_count)
 {
   fprintf (stderr, "\0x1b[%dA", up_count);
 }
 
-void term_msg::down (int down_count)
+void TermMsg::down (int down_count)
 {
   printf ("\0x1b[%dB", down_count);
 }
 
-void term_msg::clear_line ()
+void TermMsg::clear_line ()
 {
   std::cout << "\r\0x1b[94m";
 }
 
-void term_msg::sleep (int ms)
+void TermMsg::sleep (int ms)
 {
   std::this_thread::sleep_for (std::chrono::milliseconds (ms));
 }
 
-void term_msg::progress_bar ()
+void TermMsg::progress_bar ()
 {
   int i = 0;
   for (i; i < 10; i++)
@@ -79,7 +79,7 @@ void clrscr ()
  * @param ms 揺れる間隔
  * @return
  */
-void term_msg::shake (int vertical_intensity, int horizon_intensity, int repeat, int interval_ms)
+void TermMsg::shake (int vertical_intensity, int horizon_intensity, int repeat, int interval_ms)
 {
   std::random_device rnd;
   std::mt19937 mt (rnd ());

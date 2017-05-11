@@ -8,7 +8,7 @@
 #include <string>
 #include <codecvt>
 #include <locale>
-#include <string_util.h>
+#include <StringUtil.h>
 
 int main ()
 {

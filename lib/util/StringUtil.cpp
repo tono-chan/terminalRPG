@@ -2,9 +2,9 @@
 // Created by youhei on 17/05/10.
 //
 
-#include <east_width_asian.h>
+#include <EastWidthAsian.h>
 #include <iostream>
-#include "string_util.h"
+#include "StringUtil.h"
 #include <codecvt>
 #include <locale>
 
