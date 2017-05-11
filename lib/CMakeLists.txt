@@ -4,3 +4,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 
 add_subdirectory(util)
 add_subdirectory(chara)
+add_subdirectory(battle)
