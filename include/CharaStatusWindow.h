@@ -18,6 +18,7 @@
 class CharaStatusWindow {
  public:
   CharaStatusWindow(const Chara *chara,  int y ,int x);
+  ~CharaStatusWindow ();
   void draw ();
  private:
   WINDOW *window_;

@@ -50,3 +50,7 @@ void CharaStatusWindow::draw ()
 
   wrefresh (window_);
 }
+CharaStatusWindow::~CharaStatusWindow ()
+{
+  delwin (window_);
+}

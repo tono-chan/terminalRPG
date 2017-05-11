@@ -20,7 +20,7 @@ CommandMenu::CommandMenu (const std::vector<std::string> &list, int y, int x) : 
 }
 CommandMenu::~CommandMenu ()
 {
-
+  delwin(window_);
 }
 int CommandMenu::select ()
 {
