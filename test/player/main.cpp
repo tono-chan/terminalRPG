@@ -3,6 +3,7 @@
 //
 
 #include <gtest/gtest.h>
+#include "Chara.h"
 
 TEST(Player, init)
 {
@@ -10,6 +11,7 @@ TEST(Player, init)
   std::string name = "勇者";
   std::string enname = "敵";
   int hp = 100;
+  int mp = 100;
   int str = 100;
   int dex = 100;
   int vit = 100;
@@ -18,14 +20,18 @@ TEST(Player, init)
   int mnd = 100;
   int luk = 100;
 
-  Chara *player = new Chara(name, hp, str, dex, vit, intell, agi, mnd, luk);
-  Chara *enemy = new Chara( enname, hp, str, dex, vit, intell, agi, mnd, luk );
+  Chara *player = new Chara(name, hp, mp, str, dex, vit, intell, agi, mnd, luk);
+  Chara *enemy = new Chara( enname, hp, mp ,str, dex, vit, intell, agi, mnd, luk );
 
-  ASSERT_EQ(name, player.name ());
+  ASSERT_EQ(name, player->name ());
   if ( player->attack(enemy) ) {
-      ASSERT_NE(100, enemy->hp);
+      ASSERT_NE(100, enemy->hp());
     }
 
+  for ( int i = 0; i < 10000 ; i++ ) {
+      player->attack (enemy);
+    }
+  ASSERT_FALSE(enemy->is_alive());
 //  int itemId;
 //  Item item(itemId);
 //  ASSERT_TRUE( player.equip(item));

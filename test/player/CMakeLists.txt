@@ -6,8 +6,8 @@ target_link_libraries(player-test
         gtest_main
         pthread
         util
+        chara
         )
-
 add_test(
         NAME player
         COMMAND $<TARGET_FILE:player-test>
