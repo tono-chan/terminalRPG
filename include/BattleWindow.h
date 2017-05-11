@@ -12,7 +12,7 @@ class BattleWindow {
   BattleWindow();
   ~BattleWindow();
 
-  void command();
+  int command();
  private:
   WINDOW *window_;
 

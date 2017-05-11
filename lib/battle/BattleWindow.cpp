@@ -25,10 +25,11 @@ BattleWindow::~BattleWindow ()
   delwin (window_);
 }
 
-void BattleWindow::command ()
+int BattleWindow::command ()
 {
   string attack = "attack";
   string magic = "magic";
+  string
 
   WINDOW *command = newwin (10, 10, 10, 10);
 
@@ -64,7 +65,9 @@ void BattleWindow::command ()
         }
 
     }
+
   delwin (command);
+  return y;
   wmove(window_, 5,5);
   string msg="you are select" + std::to_string(y);
   waddstr (window_, msg.c_str ());
