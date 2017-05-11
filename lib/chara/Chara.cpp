@@ -6,10 +6,16 @@
 #include <string>
 #include <random>
 
-Chara::Chara (std::string name, int hp, int mp, int str, int dex, int vit, int intelligent, int agi, int mnd, int luk)
+Chara::Chara (std::string name,int lv, int exp, int hp, int mp, int str, int dex, int vit, int intelligent, int agi, int mnd, int luk)
 {
+
   name_ = name;
+  lv_ = lv;
+  exp_ = exp;
   hp_ = hp;
+  max_hp_ = hp;
+  mp_ = mp;
+  max_mp_ = mp;
   str_ = str;
   dex_ = dex;
   vit_ = vit;
@@ -19,15 +25,31 @@ Chara::Chara (std::string name, int hp, int mp, int str, int dex, int vit, int i
   luk_ = luk;
 }
 
-std::string Chara::name ()
+std::string Chara::name ()const
 {
   return name_;
 }
 
-int Chara::hp ()
+int Chara::hp ()const
 {
   return hp_;
 }
+
+int Chara::max_hp()const
+{
+  return max_hp_;
+}
+
+int Chara::mp()const
+{
+  return mp_;
+}
+
+int Chara::max_mp()const
+{
+  return max_mp_;
+}
+
 
 int Chara::dex ()
 {
@@ -54,12 +76,9 @@ bool Chara::attack (Chara *target)
   std::random_device rnd;
   std::mt19937 mt (rnd ());
   std::uniform_int_distribution<> rand100 (0, 99);
-  if (rand + this->dex () - target->agi ())
-    {
-      target->damaged (power ());
-      return true;
-    }
-  return false;
+  target->damaged (power ());
+  return true;
+
 }
 
 void Chara::damaged (int power)
@@ -72,4 +91,12 @@ void Chara::damaged (int power)
 bool Chara::is_alive ()
 {
   return hp_ > 0;
+}
+int Chara::lv () const
+{
+  return lv_;
+}
+int Chara::exp () const
+{
+  return exp_;
 }
