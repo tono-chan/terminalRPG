@@ -29,7 +29,6 @@ int BattleWindow::command ()
 {
   string attack = "attack";
   string magic = "magic";
-  string
 
   WINDOW *command = newwin (10, 10, 10, 10);
 
