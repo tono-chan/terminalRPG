@@ -43,16 +43,8 @@ int main ()
 
   term_msg term_msg1( 100 , 100);
 
-  fprintf(stderr,"hi\n");
-  fprintf(stderr,"hi\n");
-  fprintf(stderr,"hi\n");
-  fprintf(stderr,"hi\n");
-  fprintf(stderr,"hi\n");
-  term_msg1.progress_bar ();
-  term_msg1.up(8);
-  fprintf(stderr, "\033[2A");
-  fprintf(stderr,"hello\n");
-
+  term_msg termMsg( 0,0, "なんだと！" );
+  termMsg.shake ( 2, 2, 40, 100 );
 
   return 0;
 

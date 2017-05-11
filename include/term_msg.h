@@ -20,12 +20,12 @@ class term_msg {
   term_msg (int height, int width, std::string msg);
 
   bool flash ();
-  bool shake ();
   void clear_line ();
   void progress_bar ();
-  void sleep (int sec);
+  void sleep (int ms);
   void up (int up_count);
   void down (int down_count);
+  void shake (int vertical_intensity, int horizon_intensity, int repeat, int interval_ms);
 };
 
 #endif //TERMINALRPG_TERM_MSG_H

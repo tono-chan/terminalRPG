@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iomanip>
 #include <thread>
+#include <random>
 
 bool term_msg::flash ()
 {
@@ -33,12 +34,12 @@ term_msg::term_msg (int height, int width, std::string msg)
 
 void term_msg::up (int up_count)
 {
-  fprintf(stderr,"\0x1b[%dA",up_count);
+  fprintf (stderr, "\0x1b[%dA", up_count);
 }
 
 void term_msg::down (int down_count)
 {
-  printf("\0x1b[%dB",down_count);
+  printf ("\0x1b[%dB", down_count);
 }
 
 void term_msg::clear_line ()
@@ -67,17 +68,48 @@ void term_msg::progress_bar ()
 
 void clrscr ()
 {
-  system ("clear");
+  if (system ("CLS")) system ("clear");
 }
 
-bool term_msg::shake ()
+/**
+ * 画面に文字を揺らして出力
+ * @param vertical_intensity 縦揺れの大きさ
+ * @param horizon_intensity 横揺れの大きさ
+ * @param repeat 揺れる回数
+ * @param ms 揺れる間隔
+ * @return
+ */
+void term_msg::shake (int vertical_intensity, int horizon_intensity, int repeat, int interval_ms)
 {
+  std::random_device rnd;
+  std::mt19937 mt (rnd ());
+  std::uniform_int_distribution<> vertical_rand (0, vertical_intensity);
+  std::uniform_int_distribution<> horizon_rand (0, horizon_intensity);
+  int top_mergin;
+  int left_mergin;
 
-  printf ("hello");
+  for (int i = 0; i < repeat; i++)
+    {
+      left_mergin = vertical_rand (mt);
+      top_mergin = horizon_rand (mt);
 
-  clrscr ();
+      std::string top_string = "";
+      std::string left_string = "";
 
-  printf ("world");
+      for (int j = 0; j < top_mergin; j++)
+        {
+          top_string += "\n";
+        }
 
-  return false;
+      for (int j = 0; j < left_mergin; j++)
+        {
+          left_string += " ";
+        }
+      std::string display = top_string + left_string + msg_;
+      std::cerr << display << std::endl;
+      fflush (stderr);
+
+      sleep (interval_ms);
+      clrscr ();
+    }
 }
