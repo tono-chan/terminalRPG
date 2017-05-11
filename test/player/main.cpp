@@ -10,6 +10,8 @@ TEST(Player, init)
 
   std::string name = "勇者";
   std::string enname = "敵";
+  int lv = 100;
+  int exp =100;
   int hp = 100;
   int mp = 100;
   int str = 100;
@@ -20,8 +22,8 @@ TEST(Player, init)
   int mnd = 100;
   int luk = 100;
 
-  Chara *player = new Chara(name, hp, mp, str, dex, vit, intell, agi, mnd, luk);
-  Chara *enemy = new Chara( enname, hp, mp ,str, dex, vit, intell, agi, mnd, luk );
+  Chara *player = new Chara(name, lv ,exp,hp, mp, str, dex, vit, intell, agi, mnd, luk);
+  Chara *enemy = new Chara( enname, lv ,exp,hp, mp ,str, dex, vit, intell, agi, mnd, luk );
 
   ASSERT_EQ(name, player->name ());
   if ( player->attack(enemy) ) {
