@@ -10,6 +10,7 @@ target_link_libraries(curses-test2
         ncursesw
         util)
 
-add_executable(window_sample window.cpp)
-target_link_libraries(window_sample
-        ncursesw)
+add_executable(curses-map map.cpp)
+target_link_libraries(curses-map
+        ncursesw
+        util)
