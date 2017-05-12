@@ -10,12 +10,16 @@
 
 class MapModel {
  public:
-  MapModel();
+  MapModel( int height , int width);
+  bool load_map(std::vector<std::vector<int>>* map_data);
+
+  bool add (MapObject *object);
+  unsigned long list_size ();
  private:
   int width_;
   int height_;
-  std::vector<MapObject> objectList_;
-  std::vector<std::vector<int>> mapData_;
+  std::vector<MapObject*> object_list_;
+  std::vector<std::vector<int>> *map_data_;
 
 };
 
