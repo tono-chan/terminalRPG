@@ -17,7 +17,7 @@ TEST(MsgTest, top)
 
   ASSERT_TRUE(tms.flash ());
 
-  tms.shake ();
+  tms.shake (10, 10 ,10 ,40);
 
 }
 
