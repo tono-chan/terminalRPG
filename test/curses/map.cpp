@@ -8,7 +8,7 @@
 #include <string>
 #include <ncurses.h>
 #include <codecvt>
-#include <string_util.h>
+#include <StringUtil.h>
 
 int main (void)
 {
@@ -80,7 +80,6 @@ int main (void)
               }
           break;
         }
-
     }
   endwin ();
 }
