@@ -4,3 +4,5 @@ add_library(map STATIC
         MapObject.cpp
         MapController.cpp
         )
+target_link_libraries(map window
+        pthread)

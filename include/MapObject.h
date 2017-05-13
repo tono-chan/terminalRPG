@@ -4,7 +4,9 @@
 
 #ifndef TERMINALRPG_OBJECT_H
 #define TERMINALRPG_OBJECT_H
-
+#include <ncurses.h>
+#include <string>
+#include "Point.h"
 enum ObjectType : int {
   HUMAN,
   ITEM,
@@ -18,6 +20,19 @@ enum ObjectType : int {
  */
 
 class MapObject {
+ public:
+  MapObject( int y , int x);
+
+  int x();
+  int y();
+  void up();
+  void down();
+  void left();
+  void right();
+  Point point();
+
+  std::string graphics();
+
  private:
   int type_;
   bool visible_;

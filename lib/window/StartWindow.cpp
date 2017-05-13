@@ -5,6 +5,8 @@
 #include "StartWindow.h"
 #include <string>
 #include <CommandMenu.h>
+#include <MapWindow.h>
+#include <MapController.h>
 
 void StartWindow::draw ()
 {
@@ -33,8 +35,10 @@ void StartWindow::draw ()
   switch (menu->select ())
     {
       case 0 :
+        MapController *mapController = new MapController();
+        mapController->exec ();
 
-        break;
+      break;
     };
 
 }

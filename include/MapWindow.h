@@ -7,19 +7,20 @@
 
 #include <ncurses.h>
 #include "Window.h"
+#include "MapModel.h"
 class MapWindow : public Window {
-
  public:
-  WINDOW *window_;
-  
-
- public:
-  MapWindow();
-  ~MapWindow();
-  void draw();
-  void setMap();
-
-  void setMap (int map_height, int map_width, int *map_data);
+  MapWindow (MapModel *mapmodel);
+  void draw (int y, int x);
+ private:
+  MapModel *model_;
+  WINDOW *mapMargin;
+  WINDOW *mapFrame;
+  WINDOW *map;
+  int map_width_;
+  int map_height_;
+  void setPixel (WINDOW *window ,int index );
+  void setPixel (int index);
 };
 
 #endif //TERMINALRPG_MAPWINDOW_H

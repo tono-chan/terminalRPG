@@ -8,4 +8,5 @@ add_library(battle STATIC
 target_link_libraries(battle
         ncursesw
         chara
+        util
         )
