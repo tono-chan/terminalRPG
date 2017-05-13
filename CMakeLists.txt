@@ -20,6 +20,9 @@ target_link_libraries(main
         util
         pthread)
 
+#boost
+include(cmake/boost.cmake)
+
 # tests
 if (NOT without-test)
     enable_testing()
