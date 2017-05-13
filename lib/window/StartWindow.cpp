@@ -28,7 +28,7 @@ void StartWindow::draw ()
   int max_str_len = (int) load_game.length ();
 
   wrefresh (window_);
-  CommandMenu *menu = new CommandMenu (command, 14, (width - (max_str_len + 3)) / 2);
+  CommandMenu *menu = new CommandMenu (command, 14, (term_width - (max_str_len + 3)) / 2);
 
   switch (menu->select ())
     {
@@ -41,6 +41,6 @@ void StartWindow::draw ()
 
 StartWindow::StartWindow ()
 {
-  window_ = newwin (height, width, 0, 0);
+  window_ = newwin (term_height, term_width, 0, 0);
 }
 

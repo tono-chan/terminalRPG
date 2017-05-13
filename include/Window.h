@@ -8,8 +8,8 @@
 #include <vector>
 class Window {
  protected:
-  int height;
-  int width;
+  int term_height;
+  int term_width;
   std::vector<Window> *window;
 
  public:

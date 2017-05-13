@@ -80,7 +80,7 @@ TEST(utf8, sandbox)
 
 
 //    ASSERT_EQ( ,charcode);
-//    int width = strutil.get_asian_width();
+//    int term_width = strutil.get_asian_width();
 //
-//    ASSERT_EQ(3,width);
+//    ASSERT_EQ(3,term_width);
 }

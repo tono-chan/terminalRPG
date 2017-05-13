@@ -10,6 +10,6 @@ void Window::draw ()
 }
 Window::Window ()
 {
-  getmaxyx(stdscr, height, width);
+  getmaxyx(stdscr, term_height, term_width);
 
 }
