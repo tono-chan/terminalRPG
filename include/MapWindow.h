@@ -14,11 +14,11 @@ class MapWindow : public Window {
   void draw (int y, int x);
  private:
   MapModel *model_;
-  WINDOW *mapMargin;
+  WINDOW *mapOut;
   WINDOW *mapFrame;
   WINDOW *map;
-  int map_width_;
-  int map_height_;
+  int map_w_;
+  int map_h_;
   void setPixel (WINDOW *window ,int index );
   void setPixel (int index);
 };

@@ -32,7 +32,7 @@ void MapController::exec ()
 
       while (1)
         {
-          mapWindow->draw (0, 0);
+          mapWindow->draw (player->y(), player->x());
           if (key == 'q') break;
 
           std::this_thread::sleep_for (std::chrono::milliseconds (100));
@@ -84,6 +84,9 @@ void MapController::keyevent_handler ()
                 player->right ();
               }
           break;
+          case 'm':
+
+            break;
         }
     }
 }
