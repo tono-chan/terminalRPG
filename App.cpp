@@ -8,8 +8,11 @@
 
 void App::exec ()
 {
-  winCon = new WindowController;
-  winCon->draw();
+  conMgr = new ControllerManager();
+  conMgr->exec();
+//
+//  winCon = new WindowController;
+//  winCon->draw();
 
 }
 App::App ()

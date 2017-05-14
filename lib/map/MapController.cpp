@@ -4,10 +4,9 @@
 
 #include <chrono>
 #include <thread>
-
 #include <iostream>
-
 #include "MapController.h"
+#include "ControllerId.h"
 MapController::MapController ()
 {
   keypad (stdscr, TRUE);
@@ -99,7 +98,7 @@ void MapController::keyevent_handler ()
             if ( object->type () == (int)ObjectType::ENEMY)
               {
                 draw = false;
-                encount_event( (int)MapEvent::ENCOUNT);
+                change_controller( ControllerID::BATTLE );
                 return;
               }
           }

@@ -14,6 +14,9 @@ class StartWindow : public Window {
  public:
   StartWindow();
   void draw();
+  boost::signals2::signal<void(void)> start_select;
+  boost::signals2::signal<void(void)> load_select;
+
 
 };
 

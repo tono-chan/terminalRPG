@@ -6,10 +6,14 @@ add_library(manager STATIC
         BattleScene.cpp
         Task.cpp
         KeyboardManager.cpp
+        ControllerManager.cpp
+        Controller.cpp
+        StartController.cpp
+        BattleController.cpp
         )
 target_link_libraries(manager
         pthread
         boost_thread
         boost_system
-        caca
+
         )

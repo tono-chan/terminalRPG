@@ -9,4 +9,5 @@ add_library(window STATIC
 target_link_libraries(window
         ncursesw
         battle
+        manager
         )

@@ -6,6 +6,8 @@ target_link_libraries(msg-test
         gtest_main
         pthread
         util
+        icuuc
+        icudata
         )
 
 add_test(

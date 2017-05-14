@@ -6,6 +6,7 @@
 #define TERMINALRPG_APP_H
 
 #include "WindowController.h"
+#include "ControllerManager.h"
 class App {
 
 
@@ -17,7 +18,8 @@ class App {
 
  private:
   WindowController *winCon;
-  void * exit ();
+  ControllerManager *conMgr;
+
 };
 
 #endif //TERMINALRPG_APP_H

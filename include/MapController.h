@@ -7,18 +7,19 @@
 
 #include "MapWindow.h"
 #include "MapModel.h"
+#include "Controller.h"
 enum struct MapEvent : int  {
   ENCOUNT,
   MAP_CHANGE,
 };
 
 
-class MapController {
+class MapController : public Controller  {
  public:
   MapController();
   ~MapController ();
   void exec ();
-  boost::signals2::signal<void( int )> encount_event;
+
 
  private:
   int key;

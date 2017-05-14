@@ -35,9 +35,10 @@ void StartWindow::draw ()
   switch (menu->select ())
     {
       case 0 :
-        MapController *mapController = new MapController();
-        mapController->exec ();
-
+        start_select();
+      break;
+      case 1 :
+        load_select();
       break;
     };
 
