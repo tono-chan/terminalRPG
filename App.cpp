@@ -17,6 +17,7 @@ App::App ()
   initscr();
   cbreak();
   noecho();
+  timeout(1000/60);
   erase();
   refresh ();
 }
