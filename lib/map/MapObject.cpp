@@ -20,10 +20,11 @@ std::string MapObject::graphics ()
 
   return "o";
 }
-MapObject::MapObject (int y, int x)
+MapObject::MapObject (int y, int x, int type)
 {
   y_ = y;
   x_ = x;
+  type_ = type;
 
 }
 void MapObject::up ()
@@ -45,5 +46,9 @@ void MapObject::right ()
 Point MapObject::point ()
 {
   return Point (x_, y_);
+}
+int MapObject::type ()
+{
+  return type_;
 }
 

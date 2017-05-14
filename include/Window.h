@@ -6,6 +6,7 @@
 #define TERMINALRPG_WINDOW_H
 
 #include <vector>
+#include <boost/signals2/signal.hpp>
 class Window {
  protected:
   int h_;

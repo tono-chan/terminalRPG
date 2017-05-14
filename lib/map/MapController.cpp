@@ -17,20 +17,23 @@ MapController::MapController ()
 
   mapWindow = new MapWindow (mapModel);
 
-  MapObject *player = new MapObject (1, 1);
+  MapObject *player = new MapObject (1, 1 , (int)ObjectType::PLAYER );
+  MapObject *enemy = new MapObject(1, 10, (int)ObjectType::ENEMY);
 
   mapModel->add (player);
+  mapModel->add(enemy);
 }
 
 void MapController::exec ()
 {
+  draw=true;
   MapObject *player = mapModel->object_list ()[0];
 
   try
     {
       std::thread t1 (&MapController::keyevent_handler, this);
 
-      while (1)
+      while ( draw )
         {
           mapWindow->draw (player->y(), player->x());
           if (key == 'q') break;
@@ -88,6 +91,19 @@ void MapController::keyevent_handler ()
 
             break;
         }
+
+      auto object_list = mapModel->get( player->y(), player->x() );
+      {
+        for ( MapObject* object : object_list )
+          {
+            if ( object->type () == (int)ObjectType::ENEMY)
+              {
+                draw = false;
+                encount_event( (int)MapEvent::ENCOUNT);
+                return;
+              }
+          }
+      }
     }
 }
 

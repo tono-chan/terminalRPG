@@ -10,7 +10,6 @@
 
 
 
-
 class MapModel {
  public:
   MapModel ();
@@ -46,6 +45,8 @@ class MapModel {
    * @return
    */
   bool is_map_range (int y, int x);
+
+
 };
 
 #endif //TERMINALRPG_MAPMODEL_H

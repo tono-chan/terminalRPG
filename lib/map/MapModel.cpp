@@ -51,7 +51,7 @@ std::vector<MapObject*> MapModel::get (int y, int x)
   std::vector <MapObject*> list;
   for (auto object : object_list_)
     {
-      if (object->x () == x && object->y ())
+      if (object->x () == x && object->y () == y)
         {
           list.push_back (object);
         }

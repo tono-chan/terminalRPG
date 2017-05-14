@@ -29,6 +29,7 @@ void MapWindow::draw (int y, int x)
       wmove(map,object->y(),object->x() );
       waddstr (map, object->graphics ().c_str ());
     }
+
   wrefresh (map);
   wrefresh (mapFrame);
   wrefresh (mapFrame);

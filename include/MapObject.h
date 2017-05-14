@@ -7,7 +7,9 @@
 #include <ncurses.h>
 #include <string>
 #include "Point.h"
-enum ObjectType : int {
+enum struct ObjectType : int {
+  PLAYER,
+  ENEMY,
   HUMAN,
   ITEM,
   TRAP,
@@ -21,7 +23,7 @@ enum ObjectType : int {
 
 class MapObject {
  public:
-  MapObject( int y , int x);
+  MapObject( int y , int x , int type);
 
   int x();
   int y();
@@ -30,7 +32,7 @@ class MapObject {
   void left();
   void right();
   Point point();
-
+  int type();
   std::string graphics();
 
  private:
