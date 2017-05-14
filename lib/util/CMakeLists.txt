@@ -5,4 +5,5 @@ add_library(util STATIC
         TermMsg.cpp
         StringUtil.cpp
         EastWidthAsian.cpp
+        Point.cpp
         )

@@ -3,7 +3,7 @@
 //
 
 #include "CommandMenu.h"
-CommandMenu::CommandMenu (const std::vector<std::string> &list, int y, int x) : list_(list)
+CommandMenu::CommandMenu (const std::vector<std::string> &list, int y, int x) : list_ (list)
 {
   int size = (int) list.size ();
   int height = size + 2;
@@ -18,9 +18,24 @@ CommandMenu::CommandMenu (const std::vector<std::string> &list, int y, int x) : 
       waddstr(window_, list.at (i).c_str ());
     }
 }
+
+CommandMenu::CommandMenu (const std::vector<std::string> &list, int y, int x, int height, int width) : list_ (list)
+{
+  int size = (int) list.size ();
+  int left_mergin = 2;
+  window_ = newwin (height, width, y, x);
+  wborder (window_, '|', '|', '-', '-', '-', '|', '|', '-');
+  waddstr(window_, "menu");
+  for (int i = 0; i < size; i++)
+    {
+      wmove (window_, i + 1, left_mergin);
+      waddstr(window_, list.at (i).c_str ());
+    }
+}
+
 CommandMenu::~CommandMenu ()
 {
-  delwin(window_);
+  delwin (window_);
 }
 int CommandMenu::select ()
 {
@@ -30,33 +45,35 @@ int CommandMenu::select ()
   int enter = 10;
   int size = (int) list_.size ();
 
-  keypad (window_ , true);
+  keypad (window_, true);
   while (1)
     {
-      wdelch(window_);
-      winsch(window_, ' ');
-      mvwdelch (window_, id+1 , 1);
-      winsch(window_, '*');
+      wdelch (window_);
+      winsch (window_, ' ');
+      mvwdelch (window_, id + 1, 1);
+      winsch (window_, '*');
       wrefresh (window_);
 
-      key = wgetch(window_);
+      key = wgetch (window_);
       if (key == esc || key == 'q') return -1;
       if (key == enter) return id;
-      switch ( key ) {
+      switch (key)
+        {
           case KEY_UP :
-            if ( 0 < id ) {
+            if (0 < id)
+              {
                 id--;
               }
           break;
           case KEY_DOWN:
-            if (id < size - 1) {
+            if (id < size - 1)
+              {
                 id++;
               }
           break;
         }
 
     }
-
 
   return id;
 }

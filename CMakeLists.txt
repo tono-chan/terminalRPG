@@ -15,10 +15,13 @@ add_subdirectory("./include")
 add_subdirectory(lib)
 
 #executables
-add_executable(main main.cpp)
+add_executable(main main.cpp
+        App.cpp)
 target_link_libraries(main
         util
-        pthread)
+        pthread
+        window
+        map)
 
 #boost
 include(cmake/boost.cmake)
