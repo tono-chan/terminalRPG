@@ -11,7 +11,7 @@
 int main()
 {
   KeyboardManager manager;
-  manager.start_watch ();
+  manager.start_watch (60);
 
   printf("start " );
   while ( true )

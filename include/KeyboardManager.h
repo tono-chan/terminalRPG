@@ -10,13 +10,13 @@ class KeyboardManager {
  public:
   KeyboardManager();
   int getKey();
-  void start_watch();
+  void start_watch(int fps);
   void exit_watch();
  private:
   int key;
   int is_exit;
   boost::thread th;
-  void work ();
+  void work (int fps);
 };
 
 
