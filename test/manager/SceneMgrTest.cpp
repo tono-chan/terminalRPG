@@ -34,7 +34,6 @@ int main ()
       sceneMgr->update ();
       sceneMgr->draw ();
 
-
       mst2 = boost::posix_time::microsec_clock::local_time ();
       boost::posix_time::time_duration took_time = mst2 - mst1;
       wait_time = frame_time - took_time.total_milliseconds ();
@@ -45,7 +44,7 @@ int main ()
 
       if (keymgr->getKey () == 'q')  damy = false;
     }
-  sceneMgr->finalize ();
+//  sceneMgr->finalize ();
   keymgr->exit_watch ();
   endwin ();
 }

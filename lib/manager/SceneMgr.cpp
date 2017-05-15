@@ -8,7 +8,7 @@
 void SceneMgr::initialize ()
 {
   Task::initialize ();
-//  scene->initialize ();
+  scene->initialize ();
 }
 void SceneMgr::finalize ()
 {
@@ -17,12 +17,12 @@ void SceneMgr::finalize ()
 }
 void SceneMgr::update ()
 {
-  std::cout << "update" ;
+//  std::cout << "update" ;
 //  scene->update ();
 }
 void SceneMgr::draw ()
 {
-  std::cout << "draw" << std::endl;
+//  std::cout << "draw" << std::endl;
 //  scene->draw ();
 }
 
