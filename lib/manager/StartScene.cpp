@@ -55,7 +55,6 @@ StartScene::StartScene ()
 void StartScene::initialize ()
 {
   BaseScene::initialize ();
-  std::cout << "start_scene start";
   activate ();
 
   menu.push_back ("map");
@@ -67,8 +66,11 @@ void StartScene::initialize ()
 void StartScene::finalize ()
 {
   BaseScene::finalize ();
+  std::for_each ( subscene.begin (), subscene.end(), [](SubTask* p){delete p;} );
+//  subscene.clear();
   keyConnect.disconnect ();
 }
+
 void StartScene::update ()
 {
   BaseScene::update ();
@@ -77,8 +79,8 @@ void StartScene::update ()
       SubTask *task = (SubTask *) *itr;
       task->update ();
     }
-
 }
+
 void StartScene::draw ()
 {
   clear ();
@@ -98,6 +100,6 @@ void StartScene::draw ()
       task->draw ();
     }
 
-  refresh ();
+  wnoutrefresh (stdscr);
 }
 

@@ -27,5 +27,5 @@ void BattleScene::draw ()
   BaseScene::draw ();
   clear();
   addstr ("battlescene");
-  refresh ();
+  wnoutrefresh (stdscr);
 }

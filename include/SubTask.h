@@ -16,6 +16,7 @@ class SubTask : public BaseScene {
   void update() override;
   void draw() override ;
   void activate();
+  ~SubTask ();
 
  private:
   int key_;

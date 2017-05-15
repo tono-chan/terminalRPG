@@ -25,4 +25,5 @@ void MenuScene::draw ()
   BaseScene::draw ();
   clear();
   addstr("menu scene");
+  wnoutrefresh(stdscr);
 }

@@ -14,6 +14,7 @@ void SubTask::initialize ()
 void SubTask::finalize ()
 {
   BaseScene::finalize ();
+
 }
 
 void SubTask::update ()
@@ -42,5 +43,9 @@ void SubTask::key_handle(int key) {
 void SubTask::activate ()
 {
   keyConnect = KeyboardManager::Instance()->key_push_signal.connect (boost::bind( &SubTask::key_handle ,this, _1));
+}
+SubTask::~SubTask ()
+{
+  keyConnect.disconnect ();
 }
 

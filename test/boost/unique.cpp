@@ -44,6 +44,7 @@ int main()
 
   Test3 *test3 = new Test3(&button);
   con.disconnect ();
+  con.disconnect ();
 
 
   button.clieck ();

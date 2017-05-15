@@ -26,4 +26,5 @@ void MapScene::draw ()
   BaseScene::draw ();
   move(0,0);
   addstr ("map scene");
+  wnoutrefresh(stdscr);
 }

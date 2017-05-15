@@ -52,7 +52,6 @@ void EventScene::draw ()
   clear ();
   move (0, 0);
   addstr("Event Scene");
-  std::cout << display;
 
   move (1, 0);
   addstr(display.c_str ());
@@ -62,6 +61,13 @@ void EventScene::draw ()
   addstr(std::to_string (u32message.size ()).c_str ());
   move (4, 0);
   addstr(std::to_string (display_count).c_str ());
+  wnoutrefresh (stdscr);
+  WINDOW *window = newwin(20,20,10,10 );
+  waddstr (window , "hello world");
+  wnoutrefresh (window);
+  delwin (window);
+
+
 }
 void EventScene::key_handle (int key)
 {
