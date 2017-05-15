@@ -1,0 +1,8 @@
+//
+// Created by youhei on 17/05/15.
+//
+
+#ifndef TERMINALRPG_SINGLETON_H
+#define TERMINALRPG_SINGLETON_H
+
+#endif //TERMINALRPG_SINGLETON_H
