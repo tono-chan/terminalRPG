@@ -54,7 +54,8 @@ void Fps::wait ()
 }
 Fps::Fps ()
 {
-  fps_ = DEFAULT_FPS;
+  fps_ = FPS;
+  frame_time_ = 1000/fps_;
   real_fps_ = 0;
   count_ = 0;
 }

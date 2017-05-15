@@ -4,14 +4,15 @@
 
 #ifndef TERMINALRPG_FPS_H
 #define TERMINALRPG_FPS_H
-
 #include "Singleton.h"
 #include <boost/date_time/posix_time/ptime.hpp>
+
+static constexpr int FPS = 30;
+
 class Fps : public Singleton<Fps> {
   Fps ();
   friend Singleton<Fps>  ;
  private:
-  static constexpr int DEFAULT_FPS = 30;
   boost::posix_time::ptime start_time;
   boost::posix_time::ptime mst2_;
   int count_;

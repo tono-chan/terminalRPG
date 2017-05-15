@@ -10,6 +10,7 @@
 int main ()
 {
 
+  setlocale (LC_ALL, "");
   initscr ();
   cbreak();
   noecho();
@@ -19,7 +20,6 @@ int main ()
   keymgr->start_watch (60);
 
   Fps *fps = Fps::Instance ();
-  fps->set(30);
 
   bool game_status = true;
   SceneMgr *sceneMgr = new SceneMgr(SceneID::START);

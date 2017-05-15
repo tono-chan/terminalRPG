@@ -7,6 +7,7 @@
 #include <ncurses.h>
 #include <MapScene.h>
 #include <MenuScene.h>
+#include <EventScene.h>
 #include "SceneMgr.h"
 void SceneMgr::initialize ()
 {
@@ -22,7 +23,7 @@ void SceneMgr::finalize ()
 void SceneMgr::update ()
 {
 //  std::cout << "update" ;
-//  scene->update ();
+  scene->update ();
 }
 void SceneMgr::draw ()
 {
@@ -47,6 +48,10 @@ void SceneMgr::set_scene (SceneID id)
   else if (SceneID::MENU == id)
     {
       scene = new MenuScene();
+    }
+  else if (SceneID::EVENT == id)
+    {
+      scene = new EventScene();
     }
 
   scene->change_scene_event.connect (boost::bind(&SceneMgr::change_scene_handler, this, _1 ));

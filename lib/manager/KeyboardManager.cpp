@@ -28,6 +28,7 @@ void KeyboardManager::exit_watch ()
 
 void KeyboardManager::work (int fps)
 {
+
   boost::posix_time::ptime mst1;
   boost::posix_time::ptime mst2;
   long frame_time = 1000 / fps;
