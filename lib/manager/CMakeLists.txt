@@ -12,6 +12,7 @@ add_library(manager STATIC
         StartController.cpp
         BattleController.cpp
         SubTask.cpp
+        Fps.cpp
         )
 target_link_libraries(manager
         pthread
