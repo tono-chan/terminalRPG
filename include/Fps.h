@@ -11,6 +11,7 @@ class Fps : public Singleton<Fps> {
   Fps ();
   friend Singleton<Fps>  ;
  private:
+  static constexpr int DEFAULT_FPS = 30;
   boost::posix_time::ptime start_time;
   boost::posix_time::ptime mst2_;
   int count_;
