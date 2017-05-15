@@ -14,6 +14,7 @@ enum class SceneID : int{
   BATTLE,
   EVENT,
   MENU,
+  DEBUG
 };
 
 

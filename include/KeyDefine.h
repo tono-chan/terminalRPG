@@ -8,6 +8,7 @@
 namespace RPG_KEY
 {
 constexpr int ENTER = 10;
+constexpr int ESC = 27;
 }
 
 #endif //TERMINALRPG_KEYDEFINE_H

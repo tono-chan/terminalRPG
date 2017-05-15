@@ -26,6 +26,7 @@ class SceneMgr : public Task  {
   void set_scene (SceneID);
   void change_scene_handler (SceneID id);
   boost::signals2::connection change_scene_con;
+  void key_handle(int key);
 };
 
 #endif //TERMINALRPG_CONTROLLER_H

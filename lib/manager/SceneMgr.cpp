@@ -5,15 +5,17 @@
 #include <iostream>
 #include <StartScene.h>
 #include <ncurses.h>
-#include <MapScene.h>
-#include <MenuScene.h>
-#include <EventScene.h>
+#include "KeyboardManager.h"
+#include "MapScene.h"
+#include "MenuScene.h"
+#include "EventScene.h"
+#include "KeyDefine.h"
 #include "SceneMgr.h"
 void SceneMgr::initialize ()
 {
   Task::initialize ();
+  KeyboardManager::Instance ()->key_push_signal.connect (boost::bind( &SceneMgr::key_handle , this , _1 ));
   scene->initialize ();
-
 }
 void SceneMgr::finalize ()
 {
@@ -53,6 +55,10 @@ void SceneMgr::set_scene (SceneID id)
     {
       scene = new EventScene();
     }
+  else if (SceneID::DEBUG == id)
+    {
+      scene = new StartScene();
+    }
 
   scene->change_scene_event.connect (boost::bind(&SceneMgr::change_scene_handler, this, _1 ));
 }
@@ -68,5 +74,13 @@ void SceneMgr::change_scene_handler(SceneID id) {
 SceneMgr::SceneMgr (SceneID id)
 {
   set_scene (id);
+}
+
+void SceneMgr::key_handle (int key)
+{
+  if ( key == RPG_KEY::ESC )
+    {
+      change_scene_handler (SceneID::DEBUG);
+    }
 }
 
