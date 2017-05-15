@@ -14,6 +14,7 @@ add_library(manager STATIC
         SubTask.cpp
         Fps.cpp
         MapScene.cpp
+        MenuScene.cpp
         )
 target_link_libraries(manager
         pthread

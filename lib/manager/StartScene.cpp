@@ -27,9 +27,11 @@ void StartScene::key_handle (int key)
           break;
           case 1:change_scene_event (SceneID::BATTLE);
           break;
-          case 2:change_scene_event (SceneID::SHOP);
+          case 2:change_scene_event (SceneID::MENU);
           break;
-          case 3:keyConnect.disconnect ();
+          case 3:change_scene_event (SceneID::SHOP);
+          break;
+          case 4:keyConnect.disconnect ();
           SubTask *sub = new SubTask;
           sub->activate ();
           sub->deactivate_signal.connect (boost::bind( &StartScene::activate, this ));
@@ -56,9 +58,10 @@ void StartScene::initialize ()
   std::cout << "start_scene start";
   activate ();
 
-  menu.push_back ("start");
+  menu.push_back ("map");
   menu.push_back ("battle");
   menu.push_back ("menu");
+  menu.push_back ("story");
   menu.push_back ("sub_scene");
 }
 void StartScene::finalize ()

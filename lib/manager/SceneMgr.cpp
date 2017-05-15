@@ -6,6 +6,7 @@
 #include <StartScene.h>
 #include <ncurses.h>
 #include <MapScene.h>
+#include <MenuScene.h>
 #include "SceneMgr.h"
 void SceneMgr::initialize ()
 {
@@ -42,6 +43,10 @@ void SceneMgr::set_scene (SceneID id)
   else if (SceneID::MAP == id)
     {
       scene = new MapScene();
+    }
+  else if (SceneID::MENU == id)
+    {
+      scene = new MenuScene();
     }
 
   scene->change_scene_event.connect (boost::bind(&SceneMgr::change_scene_handler, this, _1 ));
