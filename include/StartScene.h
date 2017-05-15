@@ -18,9 +18,8 @@ class StartScene : public BaseScene {
  private:
 
   int select_menu;
-  void activate ();
-  boost::signals2::connection keyConnect;
   void key_handle (int key);
+
   std::vector<std::string> menu;
   std::list<SubTask *> subscene;
   void delete_sub_task (SubTask *task);

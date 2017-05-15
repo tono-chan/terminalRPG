@@ -5,6 +5,7 @@
 #include <iostream>
 #include <StartScene.h>
 #include <ncurses.h>
+#include <MapScene.h>
 #include "SceneMgr.h"
 void SceneMgr::initialize ()
 {
@@ -34,10 +35,15 @@ void SceneMgr::set_scene (SceneID id)
     {
       scene = new StartScene();
     }
-  if (SceneID::BATTLE == id)
+  else if (SceneID::BATTLE == id)
     {
       scene = new BattleScene();
     }
+  else if (SceneID::MAP == id)
+    {
+      scene = new MapScene();
+    }
+
   scene->change_scene_event.connect (boost::bind(&SceneMgr::change_scene_handler, this, _1 ));
 }
 
