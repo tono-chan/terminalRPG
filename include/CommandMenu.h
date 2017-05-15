@@ -13,6 +13,7 @@ class CommandMenu {
 
  public:
   CommandMenu (const std::vector<std::string> &list, int y, int x);
+  CommandMenu (const std::vector<std::string> &list, int y, int x, int height, int width);
   ~CommandMenu ();
   int select();
  private:
