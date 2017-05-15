@@ -33,13 +33,16 @@ void Fps::draw ()
 
   std::stringstream ss;
   ss << "frame:" << std::setw(2) << count_ << "," << "fps:" << std::setw(2) << (int)real_fps_;
-
   int width = (int) ss.str ().length ();
+
+  WINDOW *window = newwin( 1, width , y - 1, x-width );
   move(y - 1,x - width );
   {
-    addstr(ss.str ().c_str ());
+    waddstr(window ,ss.str ().c_str ());
   }
-  refresh ();
+  wnoutrefresh (window);
+  delwin (window);
+  doupdate ();
 }
 void Fps::wait ()
 {
