@@ -19,3 +19,12 @@ target_link_libraries(manager-scene
         boost_system
         ncursesw
         )
+
+add_executable(fps-scene FpsTest.cpp)
+target_link_libraries(fps-scene
+        pthread
+        manager
+        boost_thread
+        boost_system
+        ncursesw
+        )
