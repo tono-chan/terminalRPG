@@ -10,7 +10,8 @@
 #include <ncurses.h>
 
 void key_handler(int key) {
-  std::cout << key << std::endl;
+  addch((int)key);
+  refresh ();
 }
 
 int main()
@@ -19,9 +20,15 @@ int main()
   manager.start_watch (60);
   manager.key_push_signal.connect (boost::bind(key_handler , _1));
 
+//  KeyboardManager manager2;
+//  manager2.start_watch (60);
+//  manager2.key_push_signal.connect (boost::bind(key_handler , _1));
+
 
   initscr ();
-
+  cbreak();
+  noecho();
+  keypad(stdscr, true);
   printf("start " );
   while ( true )
     {
@@ -36,6 +43,7 @@ int main()
   endwin ();
 
   manager.exit_watch ();
+//  manager2.exit_watch ();
 
   return 0;
 

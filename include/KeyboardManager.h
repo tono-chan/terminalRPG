@@ -18,7 +18,7 @@ class KeyboardManager {
   boost::signals2::signal<void(int)> key_release_signal;
  private:
   int key;
-  int is_exit;
+  bool is_continue;
   boost::thread th;
   void work (int fps);
 };

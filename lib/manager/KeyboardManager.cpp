@@ -22,53 +22,37 @@ void KeyboardManager::start_watch (int fps)
 
 void KeyboardManager::exit_watch ()
 {
+  is_continue = false;
   th.interrupt ();
 }
 
 void KeyboardManager::work (int fps)
 {
-  newterm ("xterm", stdout , stdin);
-  cbreak();
-  noecho();
-  int previous;
   boost::posix_time::ptime mst1;
   boost::posix_time::ptime mst2;
   long frame_time = 1000 / fps;
   long wait_time;
-  keypad(stdscr, true);
-  timeout(-1);
-
-  int previus_key = -1;
-  while (true)
+  while (is_continue)
     {
       mst1 = boost::posix_time::microsec_clock::local_time ();
-
-      previus_key = key;
-      key = getch();
-      key_push_signal(key);
+      key = getch ();
+      if (key != ERR)
+        {
+          key_push_signal (key);
+        }
       mst2 = boost::posix_time::microsec_clock::local_time ();
       boost::posix_time::time_duration took_time = mst2 - mst1;
       wait_time = frame_time - took_time.total_milliseconds ();
-
       if (wait_time > 0)
         {
           std::this_thread::sleep_for (std::chrono::milliseconds (wait_time));
         }
-
-
-
-      //damy
-      if (key == -10)
-        {
-          return;
-        }
-
-
     }
+  std::cout << "end";
 }
 
 KeyboardManager::KeyboardManager ()
 {
-  is_exit = false;
+  is_continue = true;
 }
 
