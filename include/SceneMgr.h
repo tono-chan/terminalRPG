@@ -16,12 +16,13 @@ class SceneMgr : public Task  {
   SceneID next_scene_no;
   BaseScene *scene;
  public:
+  SceneMgr(SceneID);
   void initialize() override ;
   void finalize() override ;
   void update() override ;
   void draw() override ;
 
-
+  void set_scene (SceneID);
 };
 
 #endif //TERMINALRPG_CONTROLLER_H

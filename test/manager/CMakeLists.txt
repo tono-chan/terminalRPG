@@ -9,3 +9,13 @@ target_link_libraries(manager-keybord
         boost_system
         ncursesw
         )
+
+
+add_executable(manager-scene SceneMgrTest.cpp)
+target_link_libraries(manager-scene
+        pthread
+        manager
+        boost_thread
+        boost_system
+        ncursesw
+        )

@@ -4,6 +4,7 @@ add_library(manager STATIC
         SceneMgr.cpp
         BaseScene.cpp
         BattleScene.cpp
+        StartScene.cpp
         Task.cpp
         KeyboardManager.cpp
         ControllerManager.cpp
