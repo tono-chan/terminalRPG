@@ -6,6 +6,7 @@
 #include <SceneMgr.h>
 #include <thread>
 #include <ncurses.h>
+#include <Fps.h>
 int main ()
 {
 
@@ -17,32 +18,24 @@ int main ()
   KeyboardManager *keymgr = KeyboardManager::Instance ();
   keymgr->start_watch (60);
 
-  boost::posix_time::ptime mst1;
-  boost::posix_time::ptime mst2;
-  long frame_time = 1000 / 30;
-  long wait_time;
-  bool damy = true;
+  Fps fps(30);
 
+  bool game_status = true;
   SceneMgr *sceneMgr = new SceneMgr(SceneID::START);
   sceneMgr->initialize ();
 
-  while ( damy )
+  while ( game_status )
     {
-      mst1 = boost::posix_time::microsec_clock::local_time ();
 
-
+      fps.update ();
       sceneMgr->update ();
       sceneMgr->draw ();
 
-      mst2 = boost::posix_time::microsec_clock::local_time ();
-      boost::posix_time::time_duration took_time = mst2 - mst1;
-      wait_time = frame_time - took_time.total_milliseconds ();
-      if (wait_time > 0)
-        {
-          std::this_thread::sleep_for (std::chrono::milliseconds (wait_time));
-        }
+      fps.draw ();
+      fps.wait ();
 
-      if (keymgr->getKey () == 'q')  damy = false;
+
+      if (keymgr->getKey () == 'q')  game_status = false;
     }
 //  sceneMgr->finalize ();
   keymgr->exit_watch ();
