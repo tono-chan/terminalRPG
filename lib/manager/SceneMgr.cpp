@@ -4,11 +4,13 @@
 
 #include <iostream>
 #include <StartScene.h>
+#include <ncurses.h>
 #include "SceneMgr.h"
 void SceneMgr::initialize ()
 {
   Task::initialize ();
   scene->initialize ();
+
 }
 void SceneMgr::finalize ()
 {
@@ -23,7 +25,7 @@ void SceneMgr::update ()
 void SceneMgr::draw ()
 {
 //  std::cout << "draw" << std::endl;
-//  scene->draw ();
+  scene->draw ();
 }
 
 void SceneMgr::set_scene (SceneID id)
@@ -36,10 +38,19 @@ void SceneMgr::set_scene (SceneID id)
     {
       scene = new BattleScene();
     }
+  scene->change_scene_event.connect (boost::bind(&SceneMgr::change_scene_handler, this, _1 ));
+}
 
+void SceneMgr::change_scene_handler(SceneID id) {
+  change_scene_con.disconnect ();
+  scene->finalize ();
+  delete scene;
+  set_scene (id);
+  scene->initialize ();
 }
 
 SceneMgr::SceneMgr (SceneID id)
 {
   set_scene (id);
 }
+

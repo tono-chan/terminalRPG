@@ -13,6 +13,12 @@ class StartScene : public BaseScene {
   void finalize() override ;
   void update() override;
   void draw() override ;
+
+ private:
+  int select_menu;
+  boost::signals2::connection keyConnect;
+  void key_handle (int key);
+  std::vector<std::string> menu;
 };
 
 #endif //TERMINALRPG_STARTSCENE_H

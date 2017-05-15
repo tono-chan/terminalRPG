@@ -12,9 +12,7 @@
 
 class SceneMgr : public Task  {
 
- private:
-  SceneID next_scene_no;
-  BaseScene *scene;
+
  public:
   SceneMgr(SceneID);
   void initialize() override ;
@@ -22,7 +20,12 @@ class SceneMgr : public Task  {
   void update() override ;
   void draw() override ;
 
+ private:
+  SceneID next_scene_no;
+  BaseScene *scene;
   void set_scene (SceneID);
+  void change_scene_handler (SceneID id);
+  boost::signals2::connection change_scene_con;
 };
 
 #endif //TERMINALRPG_CONTROLLER_H

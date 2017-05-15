@@ -2,6 +2,8 @@
 // Created by youhei on 17/05/14.
 //
 
+#include <iostream>
+#include <ncurses.h>
 #include "BattleScene.h"
 
 BattleScene::BattleScene ()
@@ -23,4 +25,7 @@ void BattleScene::update ()
 void BattleScene::draw ()
 {
   BaseScene::draw ();
+  clear();
+  addstr ("battlescene");
+  refresh ();
 }

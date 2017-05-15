@@ -8,6 +8,8 @@
 #include <boost/signals2/signal.hpp>
 #include "Singleton.h"
 
+constexpr int ENTER = 10;
+
 class KeyboardManager : public Singleton<KeyboardManager> {
   KeyboardManager();
   friend Singleton<KeyboardManager>  ;
