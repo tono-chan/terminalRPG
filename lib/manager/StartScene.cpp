@@ -29,7 +29,7 @@ void StartScene::key_handle (int key)
           break;
           case 2:change_scene_event (SceneID::MENU);
           break;
-          case 3:change_scene_event (SceneID::SHOP);
+          case 3:change_scene_event (SceneID::EVENT);
           break;
           case 4:keyConnect.disconnect ();
           SubTask *sub = new SubTask;

@@ -15,6 +15,7 @@ add_library(manager STATIC
         Fps.cpp
         MapScene.cpp
         MenuScene.cpp
+        EventScene.cpp
         )
 target_link_libraries(manager
         pthread

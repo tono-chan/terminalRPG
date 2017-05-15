@@ -18,7 +18,8 @@ int main ()
   KeyboardManager *keymgr = KeyboardManager::Instance ();
   keymgr->start_watch (60);
 
-  Fps fps(30);
+  Fps *fps = Fps::Instance ();
+  fps->set(30);
 
   bool game_status = true;
   SceneMgr *sceneMgr = new SceneMgr(SceneID::START);
@@ -27,12 +28,12 @@ int main ()
   while ( game_status )
     {
 
-      fps.update ();
+      fps->update ();
       sceneMgr->update ();
       sceneMgr->draw ();
 
-      fps.draw ();
-      fps.wait ();
+      fps->draw ();
+      fps->wait ();
 
 
       if (keymgr->getKey () == 'q')  game_status = false;

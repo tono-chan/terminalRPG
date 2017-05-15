@@ -52,10 +52,18 @@ void Fps::wait ()
       std::this_thread::sleep_for (std::chrono::milliseconds (wait_time));
     }
 }
-Fps::Fps (int fps)
+Fps::Fps ()
+{
+
+  real_fps_ = 0;
+  count_ = 0;
+}
+void Fps::set (int fps)
 {
   fps_ = fps;
   frame_time_ = 1000/fps;
-  real_fps_ = 0;
-  count_ = 0;
+}
+int Fps::fps ()
+{
+  return fps_;
 }
