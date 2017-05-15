@@ -14,7 +14,7 @@ ControllerManager::ControllerManager ()
 void ControllerManager::exec ()
 {
   current = new StartController();
-  current->change_controller.connect (boost::bind (&ControllerManager::change_controller_handler , this));
+  current->change_controller.connect (boost::bind (&ControllerManager::change_controller_handler , this, _1));
   current->exec ();
 }
 void ControllerManager::change_controller_handler (ControllerID controllerID)

@@ -5,6 +5,8 @@
 #ifndef TERMINALRPG_KEYBOARDMANAGER_H
 #define TERMINALRPG_KEYBOARDMANAGER_H
 #include <boost/thread/thread.hpp>
+#include <boost/signals2/signal.hpp>
+
 
 class KeyboardManager {
  public:
@@ -12,6 +14,8 @@ class KeyboardManager {
   int getKey();
   void start_watch(int fps);
   void exit_watch();
+  boost::signals2::signal<void(int)> key_push_signal;
+  boost::signals2::signal<void(int)> key_release_signal;
  private:
   int key;
   int is_exit;

@@ -7,4 +7,5 @@ target_link_libraries(manager-keybord
         manager
         boost_thread
         boost_system
+        ncursesw
         )
