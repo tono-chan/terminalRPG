@@ -6,11 +6,13 @@
 #define TERMINALRPG_KEYBOARDMANAGER_H
 #include <boost/thread/thread.hpp>
 #include <boost/signals2/signal.hpp>
+#include "Singleton.h"
 
-
-class KeyboardManager {
- public:
+class KeyboardManager : public Singleton<KeyboardManager> {
   KeyboardManager();
+  friend Singleton<KeyboardManager>  ;
+
+ public:
   int getKey();
   void start_watch(int fps);
   void exit_watch();

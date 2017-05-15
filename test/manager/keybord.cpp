@@ -16,9 +16,9 @@ void key_handler(int key) {
 
 int main()
 {
-  KeyboardManager manager;
-  manager.start_watch (60);
-  manager.key_push_signal.connect (boost::bind(key_handler , _1));
+  KeyboardManager *manager= KeyboardManager::Instance ();
+  manager->start_watch (60);
+  manager->key_push_signal.connect (boost::bind(key_handler , _1));
 
 //  KeyboardManager manager2;
 //  manager2.start_watch (60);
@@ -32,7 +32,7 @@ int main()
   printf("start " );
   while ( true )
     {
-      int key = manager.getKey ();
+      int key = manager->getKey ();
 //      if ( key != 0 )
 //        {
 //          printf ("you are input : %d\n", manager.getKey ());
@@ -42,7 +42,7 @@ int main()
     }
   endwin ();
 
-  manager.exit_watch ();
+  manager->exit_watch ();
 //  manager2.exit_watch ();
 
   return 0;

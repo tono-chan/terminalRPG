@@ -14,8 +14,8 @@ int main ()
   noecho();
   keypad(stdscr, true);
 
-  KeyboardManager keymgr;
-  keymgr.start_watch (60);
+  KeyboardManager *keymgr = KeyboardManager::Instance ();
+  keymgr->start_watch (60);
 
   boost::posix_time::ptime mst1;
   boost::posix_time::ptime mst2;
@@ -43,9 +43,9 @@ int main ()
           std::this_thread::sleep_for (std::chrono::milliseconds (wait_time));
         }
 
-      if (keymgr.getKey () == 'q')  damy = false;
+      if (keymgr->getKey () == 'q')  damy = false;
     }
   sceneMgr->finalize ();
-  keymgr.exit_watch ();
+  keymgr->exit_watch ();
   endwin ();
 }
