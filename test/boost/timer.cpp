@@ -27,7 +27,11 @@ class Timer {
 
 class TimeKeeper {
  public:
+  Timer *timer;
   void start() {
+    timer = new Timer(1);
+    boost::thread th(boost::bind(&Timer::start, timer) );
+    timer->timeup.connect (boost::bind(&TimeKeeper::timeup, this) );
   }
   void timeup() {
     std::cout << "time up" << std::endl;
@@ -40,14 +44,11 @@ class TimeKeeper {
 
 int main() {
   TimeKeeper timeKeeper;
-  Timer timer(10);
-  boost::thread th(boost::bind(&Timer::start, &timer) );
-  timer.timeup.connect (boost::bind(&TimeKeeper::timeup, &timeKeeper) );
+  timeKeeper.start();
 
   std::string s;
   std::cin >> s;
 
-
-  return 0;
+ return 0;
 
 }

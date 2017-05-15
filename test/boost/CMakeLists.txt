@@ -10,3 +10,10 @@ target_link_libraries(boost_signal_timer
         boost_thread
         boost_system
         )
+
+add_executable(boost_uniqu unique.cpp)
+target_link_libraries(boost_uniqu
+        pthread
+        boost_thread
+        boost_system
+        )
