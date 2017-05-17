@@ -74,7 +74,7 @@ void EventScene::key_handle (int key)
   BaseScene::key_handle (key);
   if ( key == RPG_KEY::ENTER )
     {
-      display_count = (int) u32message.size () - 1;
+      display_count = u32message.size () - 1;
     }
 
 }
