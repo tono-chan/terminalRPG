@@ -93,3 +93,8 @@ bool MapModel::can_put (int y, int x)
 {
   return is_map_range (y , x) && map_data_[y][x] == 0;
 }
+bool MapModel::load_map (std::vector<std::vector<int>> *map_data)
+{
+
+  return true;
+}

@@ -13,7 +13,6 @@
 class MapModel {
  public:
   MapModel ();
-  MapModel(int height , int width);
   bool load_map(std::vector<std::vector<int>>* map_data);
   bool add (MapObject *object);
   bool can_put(int y, int x);
