@@ -8,7 +8,7 @@
 
 int main()
 {
-  Fps *fps = new Fps(60);
+  Fps *fps = Fps::Instance ();
   initscr ();
   cbreak();
   noecho();
