@@ -6,7 +6,11 @@
 enum class CommandType : int {
   ChangeBattleScene,
   ChangeMapScene,
-  ChangeStartScene
+  ChangeStartScene,
+  ChangeShopScene,
+  ChangeEventScene,
+  SubScene,
+  ChangeMenuScene
 };
 
 class Command {
