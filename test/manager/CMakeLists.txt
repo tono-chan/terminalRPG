@@ -28,3 +28,12 @@ target_link_libraries(fps-scene
         boost_system
         ncursesw
         )
+
+add_executable(key-test keytest.cpp)
+target_link_libraries(key-test
+        pthread
+        manager
+        boost_thread
+        boost_system
+        ncursesw
+        )
