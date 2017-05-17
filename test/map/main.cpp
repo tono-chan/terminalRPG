@@ -9,7 +9,7 @@ TEST( map, start ) {
 
   int width = 80;
   int height = 24;
-  MapModel *mapModel = new MapModel(width , height);
+  MapModel *mapModel = new MapModel();
 
   std::vector<std::vector<int>> map_data;
   for ( int i = 0 ; i < height; i++ )
@@ -31,14 +31,14 @@ TEST( map, add_object )
 {
   int width = 80;
   int height = 24;
-  MapModel *mapModel = new MapModel(height , width);
+  MapModel *mapModel = new MapModel();
 
-  MapObject player;
-  MapObject ally;
-  MapObject enemy;
-  mapModel->add( player );
-  mapModel->add( ally );
-  mapModel->add( enemy );
+  MapObject player( 10, 10 , (int)ObjectType::HUMAN);
+  MapObject ally(10, 10 , (int)ObjectType::HUMAN);
+  MapObject enemy(10, 10 , (int)ObjectType::HUMAN);
+  mapModel->add( &player );
+  mapModel->add( &ally );
+  mapModel->add( &enemy );
 
   unsigned long list_size = mapModel->list_size();
   ASSERT_EQ(3, list_size);
@@ -55,6 +55,6 @@ TEST( map, controll )
 {
   int width = 80;
   int height = 24;
-  MapModel *model = new MapModel(height, width );
-  MapController controller = MapController();
+  MapModel *model = new MapModel();
+  MapController *controller = new MapController();
 }
