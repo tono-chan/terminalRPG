@@ -21,20 +21,27 @@ void StartScene::key_handle (int key)
     }
   if (key == ENTER)
     {
-      switch (select_menu)
+      switch (menu[select_menu].type ())
         {
-          case 0:change_scene_event (SceneID::MAP);
+//
+//      if (CommandType::ChangeMapScene == menu[select_menu].type ())
+//        { change_scene_event (SceneID::MAP); }
+//
+//      else if (CommandType::ChangeBattleScene == menu[select_menu].type ())
+//        { change_scene_event (SceneID::BATTLE); };
+
+          case CommandType::ChangeMapScene: change_scene_event (SceneID::MAP);
           break;
-          case 1:change_scene_event (SceneID::BATTLE);
+          case CommandType::ChangeBattleScene: change_scene_event (SceneID::BATTLE);
           break;
-          case 2:change_scene_event (SceneID::MENU);
+          case CommandType::ChangeMenuScene :change_scene_event (SceneID::MENU);
           break;
-          case 3:change_scene_event (SceneID::EVENT);
+          case CommandType::ChangeEventScene :change_scene_event (SceneID::EVENT);
           break;
-          case 4:keyConnect.disconnect ();
+          case CommandType::SubScene :keyConnect.disconnect ();
           SubTask *sub = new SubTask;
           sub->activate ();
-          sub->deactivate_signal.connect (boost::bind( &StartScene::activate, this ));
+          sub->deactivate_signal.connect (boost::bind (&StartScene::activate, this));
           sub->delete_signal.connect (boost::bind (&StartScene::delete_sub_task, this, _1));
           subscene.push_back (sub);
           break;
@@ -57,16 +64,17 @@ void StartScene::initialize ()
   BaseScene::initialize ();
   activate ();
 
-  menu.push_back ("map");
-  menu.push_back ("battle");
-  menu.push_back ("menu");
-  menu.push_back ("story");
-  menu.push_back ("sub_scene");
+  menu.push_back (Command (CommandType::ChangeMapScene));
+  menu.push_back (Command (CommandType::ChangeBattleScene));
+  menu.push_back (Command (CommandType::ChangeEventScene));
+  menu.push_back (Command (CommandType::ChangeShopScene));
+  menu.push_back (Command (CommandType::SubScene));
 }
 void StartScene::finalize ()
 {
   BaseScene::finalize ();
-  std::for_each ( subscene.begin (), subscene.end(), [](SubTask* p){delete p;} );
+  std::for_each (subscene.begin (), subscene.end (), [] (SubTask *p)
+  { delete p; });
 //  subscene.clear();
   keyConnect.disconnect ();
 }
@@ -89,7 +97,7 @@ void StartScene::draw ()
   for (int i = 0; i < menu.size (); i++)
     {
       move (i + 1, 1);
-      addstr (menu[i].c_str ());
+      addstr (menu[i].name ().c_str ());
     }
   move (select_menu + 1, 0);
   addstr("*");

@@ -21,5 +21,5 @@ target_link_libraries(manager
         pthread
         boost_thread
         boost_system
-
+        command
         )

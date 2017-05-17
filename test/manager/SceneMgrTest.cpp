@@ -7,6 +7,7 @@
 #include <thread>
 #include <ncurses.h>
 #include <Fps.h>
+#include <stdlib.h>
 int main ()
 {
 
@@ -40,5 +41,5 @@ int main ()
     }
 //  sceneMgr->finalize ();
   keymgr->exit_watch ();
-  endwin ();
+  endwin();
 }

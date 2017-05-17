@@ -7,6 +7,7 @@
 
 #include "BaseScene.h"
 #include "SubTask.h"
+#include "Command.h"
 class StartScene : public BaseScene {
  public:
   StartScene ();
@@ -20,7 +21,7 @@ class StartScene : public BaseScene {
   int select_menu;
   void key_handle (int key);
 
-  std::vector<std::string> menu;
+  std::vector<Command> menu;
   std::list<SubTask *> subscene;
   void delete_sub_task (SubTask *task);
 };
