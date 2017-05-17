@@ -5,6 +5,7 @@ target_link_libraries(command-test
         gtest
         gtest_main
         pthread
+        command
         )
 
 add_test(
@@ -15,5 +16,5 @@ add_test(
 # run with: ctest -L lib
 set_property(
         TEST command
-        PROPERTY LABELS lib command
+        PROPERTY LABELS command
 )
