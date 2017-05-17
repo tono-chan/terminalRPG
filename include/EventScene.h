@@ -15,7 +15,7 @@ class EventScene :public BaseScene {
   void draw () override;
  private:
   int count;
-  int display_count;
+  size_t display_count;
   std::string message;
   std::u32string u32message;
   std::u32string u32display_message;
